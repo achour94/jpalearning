@@ -1,0 +1,19 @@
+version: '4.0'
+
+services:
+  db:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword  # Ensure this is set and known
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+    volumes:
+      - mysql-dbdata:/var/lib/mysql
+#    restart: always
+
+volumes:
+  mysql-dbdata:
